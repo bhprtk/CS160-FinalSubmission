@@ -1,0 +1,77 @@
+1. User Sign Up / Login Flow
+
+User          Client App          Firebase Auth        Firestore (users)
+  |                 |                    |                      |
+  |-- enters info ->|                    |                      |
+  |                 |-- signIn() ------->|                      |
+  |                 |                    |-- success ---------->|
+  |                 |                    |                      |
+  |                 |-- onAuthChange     |                      |
+  |                 |-- get user ------->|                      |
+  |                 |                    |                      |
+  |                 |-- fetch user from Firestore ------------->|
+  |                 |                                           |
+  |<--------------- authenticated session with user ------------|
+
+2. Post New Product
+
+Seller           Client App          Firebase Storage     Firestore (products)
+   |                  |                     |                      |
+   |-- fills form --> |                     |                      |
+   |-- uploads img -->| -- uploadBytes() -->|                      |
+   |                  | <-- image URL ------|                      |
+   |                  | -- addDoc() -----------------------------> |
+   |                  |                     |                      |
+   |<------------------------ product added ---------------------- |
+
+3. Browse & View Product
+
+User             Client App             Firestore
+  |                   |                     |
+  | -- visits /products ------------------> |
+  |                   | -- getDocs() -----> |
+  |                   | <-- product list -- |
+  | -- clicks a product ----------------->  |
+  |                   | -- getDoc() ------> |
+  |                   | <-- product data -- |
+
+4. Start a Chat (Only Created on First Message)
+
+Buyer            Client App             Firestore
+  |                   |                     |
+  | -- clicks chat -->|                     |
+  |                   | -- getDoc(chatId) -> (not exists)
+  |                   | <-- no chat --------| 
+  | -- types message ->                     |
+  |                   | -- setDoc(chat) ---> (create chat)
+  |                   | -- addDoc(message) > (send message)
+
+5. Ongoing Messaging (Real-time Chat)
+
+User A           Client App             Firestore
+  |                  |                     |
+  |                  | -- onSnapshot() --> |
+  |                  | <-- listens for new |
+  | -- sends msg --> | -- addDoc() ------> |
+  |                  |                     |
+  |                  | -- updateDoc(chat)  |
+  |                  | <-- message visible |
+
+6. View Chat List
+
+User             Client App                  Firestore
+  |                  |                          |
+  | -- visits /chat ->                          | 
+  |                  | ----- query chats -----> |
+  |                  | ----- get product -----> |
+  |                  | ----- get user ----->    |
+  | <-- chat list (with product & user info) -- |
+
+7. User Profile Page (View Listings + Info)
+
+User             Client App                               Firestore
+  |                  |                                       |
+  | -- visits /profile ----------------------------------->  |
+  |                  | -- getDoc(user) --> user info         |
+  |                  | -- query products by sellerId --> list|
+  | <---- user info + product listings --------------------- |
