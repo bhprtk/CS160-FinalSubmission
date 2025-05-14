@@ -77,3 +77,11 @@ Check out `FinalPresentation.pdf` for an 8–10 minute summary of the project’
 - Designed with separation of concerns and scalable structure
 
 ---
+
+## 🤝 Contributors
+
+* Pratik Bhandari – Full-stack development, database integration, chat system
+* Gabriel Danekari – Firebase integration, Firestore rules, authentication, image uploads
+* Swan Pyae Sone Tun – UI/UX, handled design consistency, responsive layout, and testing.
+
+---
