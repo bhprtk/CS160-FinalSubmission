@@ -20,7 +20,9 @@ This folder includes all project deliverables, documentation, source code, and f
 │   │   ├── ClassDiagram1.txt
 │   │   ├── SequenceDiagrams.txt
 │   └── 📘 UserGuide.md           # How to run, login, and use the app
-├── 📁 SourceCode                 # Source code (Next.js + Firebase)
+├── 📁 SourceCode                 # Source code 
+    ├── 🖥️ Frontend_main          # Front end app (Next.js + Firebase)
+│   ├── 🛠️ Backend_dev            # Backend app (Python + Flask + MongoDB), only used for dev
 └── 📊 FinalPresentation.pdf      # 8–10 minute slide deck
 
 ```
