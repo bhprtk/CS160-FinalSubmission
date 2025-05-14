@@ -26,9 +26,9 @@ EcoMarket is a full-stack web application that allows conscious consumers and ec
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/ecomarket.git
-   cd ecomarket
-	 ```
+   git clone https://github.com/bhprtk/eco-market.git
+   cd eco-market
+   ```
 
 2. **Install dependencies**
 
